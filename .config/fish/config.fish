@@ -19,3 +19,7 @@ function cr
         ghq list -p | peco --query $argv | read line; builtin cd $line
     end
 end
+
+function ij
+  open -b com.jetbrains.intellij
+end
