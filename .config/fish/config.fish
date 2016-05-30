@@ -11,3 +11,11 @@ pyenv rehash 2>/dev/null
 set -x RBENV_ROOT $HOME/.anyenv/envs/rbenv
 set -x PATH $HOME/.anyenv/envs/rbenv/shims $HOME/.anyenv/envs/rbenv/bin $PATH
 rbenv rehash 2>/dev/null
+
+function cr
+    if set -q $argv
+        ghq list -p | peco | read line; builtin cd $line
+    else
+        ghq list -p | peco --query $argv | read line; builtin cd $line
+    end
+end
