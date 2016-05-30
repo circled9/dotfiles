@@ -28,3 +28,7 @@ end
 function ij
   open -b com.jetbrains.intellij
 end
+
+function vi
+  nvim $argv
+end
