@@ -1,3 +1,5 @@
+set -x XDG_CONFIG_HOME $HOME/.config
+
 set -x PATH $HOME/.anyenv/bin $PATH
 
 set -x NDENV_ROOT $HOME/.anyenv/envs/ndenv
