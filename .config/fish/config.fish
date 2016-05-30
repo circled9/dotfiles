@@ -12,6 +12,9 @@ set -x RBENV_ROOT $HOME/.anyenv/envs/rbenv
 set -x PATH $HOME/.anyenv/envs/rbenv/shims $HOME/.anyenv/envs/rbenv/bin $PATH
 rbenv rehash 2>/dev/null
 
+function fish_greeting
+end
+
 function cr
     if set -q $argv
         ghq list -p | peco | read line; builtin cd $line
