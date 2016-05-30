@@ -16,11 +16,11 @@ function fish_greeting
 end
 
 function cr
-    if set -q $argv
-        ghq list -p | peco | read line; builtin cd $line
-    else
-        ghq list -p | peco --query $argv | read line; builtin cd $line
-    end
+  if set -q $argv
+    ghq list -p | peco | read line; builtin cd $line
+  else
+    ghq list -p | peco --query $argv | read line; builtin cd $line
+  end
 end
 
 function ij
