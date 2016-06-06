@@ -17,6 +17,10 @@ rbenv rehash 2>/dev/null
 function fish_greeting
 end
 
+function stree
+  /Applications/SourceTree.app/Contents/Resources/stree $argv
+end
+
 function cr
   if set -q $argv
     ghq list -p | peco | read line; builtin cd $line
