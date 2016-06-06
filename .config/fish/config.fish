@@ -26,7 +26,7 @@ function cr
 end
 
 function ij
-  open -b com.jetbrains.intellij
+  open -b com.jetbrains.intellij $argv
 end
 
 function vi
