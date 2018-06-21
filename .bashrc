@@ -53,3 +53,9 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 
 alias ls='ls -G'
 alias vi='vim'
+
+alias stree='/Applications/Sourcetree.app/Contents/Resources/stree'
+
+alias idea='open -b com.jetbrains.intellij'
+alias mine='open -b com.jetbrains.rubymine'
+alias webstorm='open -b com.jetbrains.webstorm'
