@@ -59,3 +59,6 @@ alias stree='/Applications/Sourcetree.app/Contents/Resources/stree'
 alias idea='open -b com.jetbrains.intellij'
 alias mine='open -b com.jetbrains.rubymine'
 alias webstorm='open -b com.jetbrains.webstorm'
+
+alias cr='cd $(ghq root)/$(ghq list | peco)'
+alias pcd='cd "$(find . -type d | peco)"'
