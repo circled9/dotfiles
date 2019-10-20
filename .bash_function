@@ -1,7 +1,3 @@
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
-fi
-
 # get current branch in git repo
 function parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
@@ -49,5 +45,17 @@ function parse_git_dirty {
 	fi
 }
 
-export PS1="\[\e[33m\]\u@\h\[\e[0m\] \W \[\e[35m\]\`parse_git_branch\`\[\e[0m\]\n\$ "
-export LSCOLORS=gxfxcxdxbxegedabagacad
+function cd-fzf() {
+    moveto=./$(ls -d */ | fzf --reverse)
+    cd $moveto
+}
+
+function ghq-fzf() {
+    moveto=$(ghq root)/$(ghq list | fzf --reverse)
+    cd $moveto
+}
+
+function vi-fzf() {
+    moveto=./$(find . -maxdepth 1 -type f | fzf --reverse)
+    vim $moveto
+}
