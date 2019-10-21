@@ -1,3 +1,7 @@
+if [ -f ~/.bash_function ]; then
+  . ~/.bash_function
+fi
+
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
