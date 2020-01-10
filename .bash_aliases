@@ -2,6 +2,15 @@ alias ll='ls -al'
 alias ls='ls -G'
 alias vi='vim'
 
+case ${OSTYPE} in
+  darwin*)
+  alias code='open -b com.microsoft.VSCODE'
+  alias subl='open -b com.sublimetext.3'
+  alias smerge='open -b com.sublimemerge'
+  alias stree='open -b com.torusknot.SourceTreeNotMAS'
+  ;;
+esac
+
 function cd-fzf() {
     moveto=./$(ls -d */ | fzf --reverse)
     cd $moveto
