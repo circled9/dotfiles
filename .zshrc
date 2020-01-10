@@ -17,3 +17,6 @@ PROMPT='%F{green}%n@%m%f %. ${vcs_info_msg_0_}
 export PATH="/usr/local/opt/curl/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/curl/lib"
 export CPPFLAGS="-I/usr/local/opt/curl/include"
+export PATH="$HOME/.anyenv/bin:$PATH"
+
+eval "$(anyenv init -)"
