@@ -10,20 +10,15 @@ if ! type anyenv >/dev/null 2>&1; then
   git clone https://github.com/riywo/anyenv ~/.anyenv
 fi
 
-if [ -e '~/.bashrc' ]; then
-  mv ~/.bashrc ~/.bashrc.`date "+%Y%m%d_%H%M%S"`
-  echo '.bashrc backed up !'
-fi
-
-if [ -e '~/.bash_profile' ]; then
-  mv ~/.bash_profile ~/.bash_profile.`date "+%Y%m%d_%H%M%S"`
-  echo '.bash_profile backed up !'
-fi
-
-cp ./.bashrc ~/.bashrc
-echo '.bashrc copied !'
-
-cp ./.bash_profile ~/.bash_profile
-echo '.bash_profile copied !'
+files=(".zshrc" ".bashrc" ".bash_profile" ".bash_aliases")
+for file in ${files[@]}
+do
+  if [ -e ~/${file} ]; then
+    mv ~/${file} ./backup/${file}
+    echo mv ~/${file} ./backup/${file}
+  fi
+  cp ./${file} ~/${file}
+  echo cp ./${file} ~/${file}
+done
 
 exec $SHELL -l
