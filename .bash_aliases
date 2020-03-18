@@ -26,6 +26,19 @@ function vi-fzf() {
     vim $moveto
 }
 
+function nodenv-fzf() {
+    nodenv versions | fzf --reverse | sed -e 's/* //g' | xargs nodenv local && nodenv version
+}
+function rbenv-fzf() {
+    rbenv versions | fzf --reverse | sed -e 's/* //g' | xargs rbenv local && rbenv version
+}
+function pyenv-fzf() {
+    pyenv versions | fzf --reverse | sed -e 's/* //g' | xargs pyenv local && pyenv version
+}
+
 alias fcd=cd-fzf
 alias cr=ghq-fzf
 alias fvi=vi-fzf
+alias fjs=nodenv-fzf
+alias frb=rbenv-fzf
+alias fpy=pyenv-fzf
