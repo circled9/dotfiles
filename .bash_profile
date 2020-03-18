@@ -4,3 +4,4 @@ fi
 
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
+eval "$(starship init bash)"
