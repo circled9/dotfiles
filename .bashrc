@@ -1,7 +1,8 @@
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+if [ -f ~/.aliases ]; then
+  . ~/.aliases
 fi
 
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+export PATH="$HOME/.anyenv/bin:$HOME/.cargo/bin:$HOME/go/1.16beta1/bin:$PATH"
 eval "$(starship init bash)"
+eval "$(anyenv init -)"
+
