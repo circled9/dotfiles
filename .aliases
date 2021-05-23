@@ -1,7 +1,10 @@
-alias ls='exa'
+
 alias cat='bat'
-alias grep='rg'
+alias ls='exa'
 alias find='fd'
+alias od='hexyl'
+alias ps='procs'
+alias grep='rg'
 
 alias ll='ls -al'
 
