@@ -1,6 +1,6 @@
 #!/bin/bash
 
-targets=(".zshrc" ".bashrc" ".bash_profile" ".bash_aliases")
+targets=(".zshrc" ".zshenv" ".zprofile" ".bashrc" ".bash_profile" ".aliases")
 for target in ${targets[@]}
 do
   if [ -e ~/${target} ]; then
