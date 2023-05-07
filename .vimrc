@@ -33,4 +33,3 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 nnoremap Y y$
 nnoremap + <C-a>
 nnoremap - <C-x>
-
