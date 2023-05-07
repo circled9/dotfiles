@@ -1,15 +1,10 @@
-export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
-export PIPENV_VENV_IN_PROJECT=true
-
-export PATH="$HOME/.anyenv/bin:$HOME/.cargo/bin:$HOME/go/1.16.4/bin:$PYENV_ROOT/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
-
-eval "$(pyenv init --path)"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-eval "$(anyenv init -)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+path+=("$HOME/Library/Application Support/JetBrains/Toolbox/scripts")
+path+=("$HOME/bin", $path)
 
 if [ -f ~/.aliases ]; then
   . ~/.aliases
