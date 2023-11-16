@@ -10,7 +10,7 @@ if ! type anyenv >/dev/null 2>&1; then
   git clone https://github.com/riywo/anyenv ~/.anyenv
 fi
 
-files=(".zshrc" ".zshenv" ".zprofile" ".bashrc" ".bash_profile" ".aliases")
+files=(".zshrc" ".zshenv" ".zprofile" ".bashrc" ".bash_profile" ".aliases", ".gitconfig")
 
 for file in ${files[@]}
 do

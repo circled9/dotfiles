@@ -1,13 +1,11 @@
-
 alias cat='bat'
-alias ls='exa'
 alias find='fd'
+alias grep='rg'
+alias ll='ls -al'
+alias ls='exa'
 alias od='hexyl'
 alias ps='procs'
-alias grep='rg'
-
-alias ll='ls -al'
-
+alias vim='nvim'
 
 case ${OSTYPE} in
   darwin*)
@@ -15,7 +13,6 @@ case ${OSTYPE} in
   alias smerge='open -b com.sublimemerge'
   ;;
 esac
-
 
 function cd-fzf() {
     moveto=./$(ls -d */ | fzf --reverse)
