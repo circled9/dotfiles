@@ -16,10 +16,10 @@ if status is-interactive
   starship init fish | source
 
   if test -x /opt/homebrew/bin/anyenv
-    if not test -f /tmp/anyenv.cache
-      anyenv init --no-rehash - fish > /tmp/anyenv.cache
+    if not test -f /tmp/anyenv.fish.cache
+      anyenv init --no-rehash - fish > /tmp/anyenv.fish.cache
     end
-    source /tmp/anyenv.cache
+    source /tmp/anyenv.fish.cache
   end
   
 
