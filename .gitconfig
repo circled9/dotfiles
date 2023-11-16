@@ -1,0 +1,11 @@
+[user]
+	name = Matsui Masashi
+	email = 5251092+circled9@users.noreply.github.com
+[init]
+	defaultBranch = main
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	sw = switch
