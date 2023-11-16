@@ -17,7 +17,7 @@ if status is-interactive
 
   if test -x /opt/homebrew/bin/anyenv
     if not test -f /tmp/anyenv.cache
-      anyenv init - --no-rehash > /tmp/anyenv.cache
+      anyenv init --no-rehash - fish > /tmp/anyenv.cache
     end
     source /tmp/anyenv.cache
   end
