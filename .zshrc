@@ -1,10 +1,16 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(starship init zsh)"
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-path+=("$HOME/Library/Application Support/JetBrains/Toolbox/scripts")
 path+=("$HOME/bin", $path)
+
+eval "$(starship init zsh)"
+
+if [ -x /opt/homebrew/bin/anyenv ]
+then
+   if ! [ -f /tmp/anyenv.cache ]
+   then
+      anyenv init - --no-rehash > /tmp/anyenv.cache
+      zcompile /tmp/anyenv.cache
+   fi
+   source /tmp/anyenv.cache
+fi
 
 if [ -f ~/.aliases ]; then
   . ~/.aliases
