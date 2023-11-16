@@ -50,7 +50,7 @@ function cd-fzf
 end
 
 function ghq-fzf
-  set $(ghq root)/$(ghq list | fzf --reverse)
+  set moveto $(ghq root)/$(ghq list | fzf --reverse)
   cd $moveto
 end
 
