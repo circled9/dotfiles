@@ -1,37 +1,30 @@
-fish_add_path $HOME/.cargo/bin
+set --export MODULAR_HOME "$HOME/.modular"
 
-set -gx GOENV_ROOT $HOME/.goenv
-fish_add_path $GOENV_ROOT/bin
-fish_add_path $GOROOT/bin
+fish_add_path "$HOME/opt/homebrew/opt/curl/bin"
+fish_add_path "$HOME/.local/share/mise/shims"
+fish_add_path "$MODULAR_HOME/pkg/packages.modular.com_mojo/bin"
+fish_add_path "$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
+fish_add_path "$HOME/bin"
 
-set -gx MODULAR_HOME $HOME/.modular
-fish_add_path $MODULAR_HOME/pkg/packages.modular.com_mojo/bin
+source "$HOME/.cargo/env"
+source "$HOME/.rye/env"
 
-fish_add_path $HOME/bin
-
+eval (/opt/homebrew/bin/brew shellenv)
+$HOME/.local/bin/mise activate fish | source
 
 if status is-interactive
-  eval (/opt/homebrew/bin/brew shellenv)
-
+  zoxide init fish | source
   starship init fish | source
 
-  if test -x /opt/homebrew/bin/anyenv
-    if not test -f /tmp/anyenv.fish.cache
-      anyenv init --no-rehash - fish > /tmp/anyenv.fish.cache
-    end
-    source /tmp/anyenv.fish.cache
-  end
-  
-
-  alias ll='ls -al'
-  
   alias cat='bat'
   alias find='fd'
   alias grep='rg'
-  alias ls='exa'
+  alias ls='eza'
   alias od='hexyl'
   alias ps='procs'
   alias vim='nvim'
+
+  alias ll='ls -al'
 
   alias cr=ghq-fzf
   alias fcd=cd-fzf
@@ -39,7 +32,6 @@ if status is-interactive
 
   switch (uname)
     case Darwin
-      alias code='open -b com.microsoft.VSCODE'
       alias smerge='open -b com.sublimemerge'
   end
 end

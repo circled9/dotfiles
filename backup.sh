@@ -3,7 +3,7 @@ __0_dirs=("${__AMBER_ARRAY_0[@]}");
 index=0;
 for dir in "${__0_dirs[@]}"
 do
-    cp -r ~/${dir} ./files/${dir}
+    cp -r ~/${dir} ./backup/${dir}
 __AMBER_STATUS=$?;
 if [ $__AMBER_STATUS != 0 ]; then
         echo "Failed to copy ${dir}"
@@ -15,7 +15,7 @@ __1_files=("${__AMBER_ARRAY_1[@]}");
 index=0;
 for file in "${__1_files[@]}"
 do
-    cp ~/${file} ./files/${file}
+    cp ~/${file} ./backup/${file}
 __AMBER_STATUS=$?;
 if [ $__AMBER_STATUS != 0 ]; then
         echo "Failed to copy ${file}"

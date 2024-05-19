@@ -1,25 +1,24 @@
-#!/bin/bash
-
-if ! type git >/dev/null 2>&1; then
-  echo 'git not found !'
-  echo 'please install git command 🙇'
-  exit
-fi
-
-if ! type anyenv >/dev/null 2>&1; then
-  git clone https://github.com/riywo/anyenv ~/.anyenv
-fi
-
-files=(".zshrc" ".zshenv" ".zprofile" ".bashrc" ".bash_profile" ".aliases", ".gitconfig")
-
-for file in ${files[@]}
+__AMBER_ARRAY_0=(".config");
+__0_dirs=("${__AMBER_ARRAY_0[@]}");
+index=0;
+for dir in "${__0_dirs[@]}"
 do
-  if [ -e ~/${file} ]; then
-    mv ~/${file} ./backup/${file}
-    echo mv ~/${file} ./backup/${file}
-  fi
-  cp ./${file} ~/${file}
-  echo cp ./${file} ~/${file}
+    cp -r ./files/${dir} ~/${dir}
+__AMBER_STATUS=$?;
+if [ $__AMBER_STATUS != 0 ]; then
+        echo "Failed to copy ${dir}"
+fi
+    let index=${index}+1
+done;
+__AMBER_ARRAY_1=(".aliases" ".bash_profile" ".bashrc" ".gitconfig" ".gitconfig" ".zshrc");
+__1_files=("${__AMBER_ARRAY_1[@]}");
+index=0;
+for file in "${__1_files[@]}"
+do
+    cp ./files/${file} ~/${file}
+__AMBER_STATUS=$?;
+if [ $__AMBER_STATUS != 0 ]; then
+        echo "Failed to copy ${file}"
+fi
+    let index=${index}+1
 done
-
-exec $SHELL -l

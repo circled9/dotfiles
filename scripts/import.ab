@@ -1,0 +1,24 @@
+let dirs = [
+  ".config"
+]
+
+loop index, dir in dirs {
+    $cp -r ~/{dir} ./files/{dir}$ failed {
+        echo "Failed to copy {dir}"
+    }
+}
+
+let files = [
+  ".aliases",
+  ".bash_profile",
+  ".bashrc",
+  ".gitconfig",
+  ".gitconfig",
+  ".zshrc"
+]
+
+loop index, file in files {
+    $cp ~/{file} ./files/{file}$ failed {
+        echo "Failed to copy {file}"
+    }
+}

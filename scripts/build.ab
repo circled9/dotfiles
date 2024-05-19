@@ -1,0 +1,12 @@
+let files = [
+  "backup",
+  "build",
+  "deploy",
+  "import"
+]
+
+loop index, file in files {
+    $amber ./scripts/{file}.ab ./{file}.sh$ failed {
+        echo "Failed to build {file}.ab"
+    }
+}
