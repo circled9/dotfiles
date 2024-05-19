@@ -1,27 +1,26 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(starship init zsh)"
-
-if [ -x /opt/homebrew/bin/anyenv ]
-then
-   if ! [ -f /tmp/anyenv.zsh.cache ]
-   then
-      anyenv init --no-rehash - zsh > /tmp/anyenv.zsh.cache
-      zcompile /tmp/anyenv.zsh.cache
-   fi
-   source /tmp/anyenv.zsh.cache
-fi
-
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$GOPATH/bin:$PATH"
-
 export MODULAR_HOME="$HOME/.modular"
-export PATH="$MODULAR_HOME/pkg/packages.modular.com_mojo/bin:$PATH"
 
-export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
-export PATH="$PATH:$HOME/bin"
+path=(
+    /opt/homebrew/opt/curl/bin
+    $HOME/.local/share/mise/shims
+    $MODULAR_HOME/pkg/packages.modular.com_mojo/bin
+    $HOME/Library/Application Support/JetBrains/Toolbox/scripts
+    $HOME/bin
+    $path
+)
+
+source "$HOME/.cargo/env"
+source "$HOME/.rye/env"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$($HOME/.local/bin/mise activate zsh)"
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 
 if [ -f ~/.aliases ]; then
   . ~/.aliases
 fi
+
+# if [[ -o interactive ]]; then
+#     exec fish
+# fi
